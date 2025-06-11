@@ -26,6 +26,7 @@ export default function HomePage() {
     gap: '10px',
     minHeight: '100vh',
     paddingBottom: '120px',
+    zIndex: 0,
     background: 'linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 25%, #dcdcdc 50%, #e8e8e8 75%, #f5f5f5 100%)',
   };
 
@@ -62,7 +63,15 @@ export default function HomePage() {
         >
           Taken
         </FuzzyText>
-        <div style={{ width: '100%', height: '600px', position: 'relative', zIndex: 1 }}>
+        <div style={{   position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 0,
+          overflow: 'visible',
+          pointerEvents: 'none'
+          }}>
           <Particles
             particleColors={[
               '#dc2626',
