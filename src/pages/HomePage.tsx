@@ -1,31 +1,95 @@
-
+import React from 'react';
+import { 
+  VscHome, 
+  VscAccount, 
+  VscShield, 
+  VscCode, 
+  VscStarFull, 
+  VscGlobe, 
+  VscNotebook,
+  VscGithub,
+  VscFile
+} from 'react-icons/vsc';
+import { useNavigate } from 'react-router-dom'; // ⬅️ import this
+import FuzzyText from '../components/FuzzyText';
+import Particles from '../components/Particles';
+import Dock from '../components/Dock';
 
 export default function HomePage() {
+  const navigate = useNavigate(); // ⬅️ create navigate function
+
+  const containerStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '10px',
+    minHeight: '100vh',
+    paddingBottom: '120px',
+    background: 'linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 25%, #dcdcdc 50%, #e8e8e8 75%, #f5f5f5 100%)',
+  };
+
+  const items = [
+    { icon: <VscHome size={18} />, label: 'Home', onClick: () => navigate('/') },
+    { icon: <VscAccount size={18} />, label: 'Meet the Team', onClick: () => navigate('/team') },
+    { icon: <VscFile size={18} />, label: 'Personal Pages', onClick: () => navigate('/personal') },
+    { icon: <VscShield size={18} />, label: 'Cybersecurity', onClick: () => navigate('/cybersecurity') },
+    { icon: <VscCode size={18} />, label: 'Projects', onClick: () => navigate('/projects') },
+    { icon: <VscNotebook size={18} />, label: 'Scripts', onClick: () => navigate('/scripts') },
+    { icon: <VscStarFull size={18} />, label: 'Competitions', onClick: () => navigate('/competitions') },
+    { icon: <VscGithub size={18} />, label: 'GitHub', onClick: () => window.open('https://github.com', '_blank') },
+    { icon: <VscGlobe size={18} />, label: 'Blog', onClick: () => navigate('/blog') },
+  ];
+
   return (
-    <div className="container mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Welcome to usernameTaken!</h1>
-      <p className="text-lg text-gray-700 leading-relaxed">
-        This is the central hub for our community, offering insights into cybersecurity, exciting projects,
-        team profiles, and engaging blog content. Explore the navigation above to get started!
-      </p>
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="p-4 border rounded-md shadow-sm bg-gray-50">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">Our Mission</h2>
-          <p className="text-gray-600">To foster innovation and knowledge sharing in the cybersecurity and tech community.</p>
-        </div>
-        <div className="p-4 border rounded-md shadow-sm bg-gray-50">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">Latest Updates</h2>
-          <ul className="list-disc list-inside text-gray-600">
-            <li>New blog post on ATproto integration.</li>
-            <li>Project showcase updated.</li>
-            <li>Upcoming cybersecurity competition announced!</li>
-          </ul>
-        </div>
-        <div className="p-4 border rounded-md shadow-sm bg-gray-50">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">Connect With Us</h2>
-          <p className="text-gray-600">Find us on GitHub and social media for more.</p>
+    <>
+      <div style={containerStyle}>
+        <FuzzyText
+          baseIntensity={0.01}
+          hoverIntensity={0.5}
+          enableHover={true}
+          fontSize={100}
+          color='#2c2c2c'
+        >
+          Username
+        </FuzzyText>
+        <FuzzyText
+          baseIntensity={0.01}
+          hoverIntensity={0.5}
+          enableHover={true}
+          fontSize={100}
+          color='#dc2626'
+        >
+          Taken
+        </FuzzyText>
+        <div style={{ width: '100%', height: '600px', position: 'relative', zIndex: 1 }}>
+          <Particles
+            particleColors={[
+              '#dc2626',
+              '#ef4444',
+              '#f87171',
+              '#fca5a5',
+              '#b91c1c',
+              '#991b1b'
+            ]}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={false}
+            alphaParticles={false}
+            disableRotation={false}
+          />
         </div>
       </div>
-    </div>
+
+      <Dock
+        items={items}
+        panelHeight={68}
+        baseItemSize={50}
+        magnification={70}
+        className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50"
+      />
+    </>
   );
 }
