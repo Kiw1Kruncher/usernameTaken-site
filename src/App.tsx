@@ -1,20 +1,20 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // Import all your page components from src/pages/
-import HomePage from './pages/HomePage.tsx';
-import UsersPage from './pages/UsersPage.tsx';
-import AwardsPage from './pages/AwardsPage.tsx';
-import CybersecurityPage from './pages/CybersecurityPage.tsx';
-import ScriptsPage from './pages/ScriptsPage.tsx';
-import CompetitionsPage from './pages/CompetitionsPage.tsx';
-import ProjectsPage from './pages/ProjectsPage.tsx';
-import TeamPage from './pages/TeamPage.tsx';
-import PersonalPage from './pages/PersonalPage.tsx';
-import TeamBlogsPage from './pages/TeamBlogsPage.tsx';
-import MacroBlogPage from './pages/MacroBlogPage.tsx';
-import ATProtoBlogPage from './pages/ATProtoBlogPage.tsx';
-import BlogPostPage from './pages/BlogPostPage.tsx';
+// Removed .tsx extension from imports for better resolution
+import HomePage from './pages/HomePage';
+import UsersPage from './pages/UsersPage';
+import AwardsPage from './pages/AwardsPage';
+import CybersecurityPage from './pages/CybersecurityPage';
+import ScriptsPage from './pages/ScriptsPage';
+import CompetitionsPage from './pages/CompetitionsPage';
+import ProjectsPage from './pages/ProjectsPage';
+import TeamPage from './pages/TeamPage';
+import PersonalPage from './pages/PersonalPage';
+import TeamBlogsPage from './pages/TeamBlogsPage';
+import MacroBlogPage from './pages/MacroBlogPage';
+import ATProtoBlogPage from './pages/ATProtoBlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 
 // You might also want to import Analytics from "@vercel/analytics/react";
 // import { Analytics } from "@vercel/analytics/react";
