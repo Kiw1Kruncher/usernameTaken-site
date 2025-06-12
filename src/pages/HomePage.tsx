@@ -1,14 +1,8 @@
 import React from 'react';
 import { 
-  VscHome, 
   VscAccount, 
   VscShield, 
   VscCode, 
-  VscStarFull, 
-  VscGlobe, 
-  VscNotebook,
-  VscGithub,
-  VscFile
 } from 'react-icons/vsc';
 import { useNavigate } from 'react-router-dom'; // ⬅️ import this
 import FuzzyText from '../components/FuzzyText';
@@ -31,15 +25,10 @@ export default function HomePage() {
   };
 
   const items = [
-    { icon: <VscHome size={18} />, label: 'Home', onClick: () => navigate('/') },
     { icon: <VscAccount size={18} />, label: 'Meet the Team', onClick: () => navigate('/team') },
-    { icon: <VscFile size={18} />, label: 'Personal Pages', onClick: () => navigate('/personal') },
     { icon: <VscShield size={18} />, label: 'Cybersecurity', onClick: () => navigate('/cybersecurity') },
     { icon: <VscCode size={18} />, label: 'Projects', onClick: () => navigate('/projects') },
-    { icon: <VscNotebook size={18} />, label: 'Scripts', onClick: () => navigate('/scripts') },
-    { icon: <VscStarFull size={18} />, label: 'Competitions', onClick: () => navigate('/competitions') },
-    { icon: <VscGithub size={18} />, label: 'GitHub', onClick: () => window.open('https://github.com', '_blank') },
-    { icon: <VscGlobe size={18} />, label: 'Blog', onClick: () => navigate('/blog') },
+
   ];
 
   return (

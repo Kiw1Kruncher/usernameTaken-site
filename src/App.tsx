@@ -1,7 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Import BrowserRouter, Routes, and Route from react-router-dom
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+// Import AnimatePresence from framer-motion for animations
+import { AnimatePresence } from 'framer-motion';
 
-// Import all your page components from src/pages/
+// Import all your page components
 import HomePage from './pages/HomePage';
 import UsersPage from './pages/UsersPage';
 import AwardsPage from './pages/AwardsPage';
@@ -18,20 +21,26 @@ import BlogPostPage from './pages/BlogPostPage';
 import CompetitionSitesPage from './pages/CompetitionSitesPage';
 import MeetTheTeamPage from './pages/MeetTheTeamPage';
 
-
-
-// You might also want to import Analytics from "@vercel/analytics/react";
-// import { Analytics } from "@vercel/analytics/react";
-
-// Main App component
 const App: React.FC = () => {
   return (
-    // Router component to enable routing
     <Router>
-      {/* Main content area */}
-      <main className="min-h-screen">
-        {/* Routes define which component renders for a given URL path */}
-        <Routes>
+      <AppContent />
+    </Router>
+  );
+};
+
+// We create a separate component to be able to use the useLocation hook,
+// which must be inside the <Router>.
+const AppContent: React.FC = () => {
+  const location = useLocation();
+
+  return (
+    <main className="min-h-screen">
+      {/* AnimatePresence enables the animation of components that have been removed from the tree. */}
+      {/* The `mode="wait"` prop ensures the outgoing page finishes its exit animation before the new one enters. */}
+      <AnimatePresence mode="wait">
+        {/* The key={location.pathname} is crucial. It tells AnimatePresence that a new component is rendering. */}
+        <Routes location={location} key={location.pathname}>
           <Route path="/" element={<HomePage />} />
 
           {/* Users section */}
@@ -63,22 +72,17 @@ const App: React.FC = () => {
           <Route path="/github" element={<div>Redirecting to GitHub...</div>} />
 
           {/* Fallback route for any undefined paths */}
-          <Route 
-            path="*" 
+          <Route
+            path="*"
             element={
               <div className="flex items-center justify-center min-h-screen text-center text-red-500 text-xl">
                 404 - Page Not Found
               </div>
-            } 
+            }
           />
         </Routes>
-      </main>
-
-
-
-      {/* If you uncommented Analytics, make sure to add it here */}
-      {/* <Analytics /> */}
-    </Router>
+      </AnimatePresence>
+    </main>
   );
 };
 
