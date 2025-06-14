@@ -1,16 +1,17 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { 
   VscAccount, 
   VscShield, 
   VscCode, 
 } from 'react-icons/vsc';
-import { useNavigate } from 'react-router-dom'; // ⬅️ import this
+import { useNavigate } from 'react-router-dom';
 import FuzzyText from '../components/FuzzyText';
 import Particles from '../components/Particles';
 import Dock from '../components/Dock';
 
 export default function HomePage() {
-  const navigate = useNavigate(); // ⬅️ create navigate function
+  const navigate = useNavigate();
 
   const containerStyle: React.CSSProperties = {
     display: 'flex',
@@ -28,11 +29,15 @@ export default function HomePage() {
     { icon: <VscAccount size={18} />, label: 'Meet the Team', onClick: () => navigate('/team') },
     { icon: <VscShield size={18} />, label: 'Cybersecurity', onClick: () => navigate('/cybersecurity') },
     { icon: <VscCode size={18} />, label: 'Projects', onClick: () => navigate('/projects') },
-
   ];
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.4 }}
+    >
       <div style={containerStyle}>
         <FuzzyText
           baseIntensity={0.01}
@@ -88,6 +93,6 @@ export default function HomePage() {
         magnification={70}
         className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50"
       />
-    </>
+    </motion.div>
   );
 }

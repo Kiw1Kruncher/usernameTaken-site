@@ -7,15 +7,15 @@ import FuzzyText from '../components/FuzzyText';
 import '../components/ProfileCard.css';
 
 const profiles = [
-  { name: 'Aaron Ashclarke', handle: 'TBA' },
-  { name: 'August Lam', handle: 'TBA' },
-  { name: 'Benjamin Kerr', handle: 'TBA' },
-  { name: 'Dylan Woods', handle: 'TBA' },
+  { name: 'Aaron Ashclarke', handle: 'Aaron' },
+  { name: 'August Lam', handle: 'August' },
+  { name: 'Benjamin Kerr', handle: 'Benjamin' },
+  { name: 'Dylan Woods', handle: 'Dylan' },
   { name: 'Katelyn Bell', handle: 'Kiw1Kruncher' },
-  { name: 'Olivia Zhao', handle: 'TBA' },
-  { name: 'Sam Katevatis', handle: 'TBA' },
-  { name: 'Steven Su', handle: 'TBA' },
-  { name: 'Sunny He', handle: 'TBA' },
+  { name: 'Olivia Zhao', handle: 'Olivia' },
+  { name: 'Sam Katevatis', handle: 'Sam' },
+  { name: 'Steven Su', handle: 'Steven' },
+  { name: 'Sunny He', handle: 'Sunny' },
 ];
 
 const TeamPage = () => {
